@@ -1,71 +1,64 @@
 import Link from "next/link";
-import { Trophy, CalendarDays, Users, Activity, Settings, UserPlus } from "lucide-react";
+import { Shield, Trophy } from "lucide-react";
+import Image from "next/image";
 
-export default function Home() {
+export default function PortalHome() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#E31837]/40 overflow-hidden relative font-sans">
+    <div className="min-h-screen bg-black text-white selection:bg-[#E31837]/40 overflow-hidden relative font-sans flex flex-col items-center justify-center p-6 md:p-24">
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] bg-[#E31837] rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 -right-40 w-[30rem] h-[30rem] bg-red-900 rounded-full mix-blend-screen filter blur-[128px] opacity-30 animate-pulse delay-1000"></div>
+        <div className="absolute -top-40 -left-40 w-[40rem] h-[40rem] bg-[#E31837] rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 -right-40 w-[40rem] h-[40rem] bg-red-900 rounded-full mix-blend-screen filter blur-[128px] opacity-30 animate-pulse delay-1000"></div>
       </div>
 
-      {/* Main Content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 md:p-24">
+      <div className="relative z-10 text-center space-y-6 max-w-4xl mb-16">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight drop-shadow-sm uppercase">
+          York Flag Football
+        </h1>
+        <p className="text-lg md:text-xl text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed mt-6">
+          Select your portal to access schedules, rosters, and live game tracking.
+        </p>
+      </div>
 
-        {/* Hero Section */}
-        <div className="text-center space-y-6 max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 shadow-2xl">
-            <Trophy className="w-4 h-4 text-[#E31837]" />
-            <span className="text-sm font-semibold tracking-widest text-neutral-200 uppercase">York Lions</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight drop-shadow-sm">
-            York University<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-red-200 to-[#E31837]">Women's Flag Football League</span>
-          </h1>
-          <p className="text-lg md:text-xl text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed mt-6">
-            The official portal for the YUWFFL. View rosters, game stats, and stay updated with the latest schedule.
-          </p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl relative z-10">
+        {/* Red Team Portal */}
+        <Link href="/red-team" className="group relative flex flex-col items-center justify-center p-12 rounded-[3rem] bg-neutral-950/50 border border-[#E31837]/20 backdrop-blur-md hover:bg-[#E31837]/10 transition-all duration-500 hover:border-[#E31837]/50 overflow-hidden shadow-2xl hover:shadow-[0_0_50px_rgba(227,24,55,0.3)] hover:-translate-y-2">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#E31837]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <Shield className="w-16 h-16 text-[#E31837] mb-6 transform group-hover:scale-110 transition-transform duration-500" />
+          <h2 className="text-3xl font-black mb-4 tracking-wider text-[#E31837]">RED TEAM</h2>
+          <p className="text-neutral-400 text-center">York Lions Competitive Travel Team</p>
+        </Link>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl">
-
-          <Link href="/calendar" className="group relative flex flex-col p-6 rounded-3xl bg-neutral-950/50 border border-white/5 backdrop-blur-md hover:bg-neutral-900 transition-all duration-300 hover:border-white/10 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <CalendarDays className="w-8 h-8 text-white mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Scores & Schedule</h3>
-            <p className="text-neutral-400 text-sm">View upcoming matchups and past results.</p>
-          </Link>
-
-          <Link href="/rosters" className="group relative flex flex-col p-6 rounded-3xl bg-neutral-950/50 border border-white/5 backdrop-blur-md hover:bg-neutral-900 transition-all duration-300 hover:border-white/10 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E31837]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <Users className="w-8 h-8 text-[#E31837] mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Teams</h3>
-            <p className="text-neutral-400 text-sm">Browse teams and individual player details.</p>
-          </Link>
-
-          <Link href="/stats" className="group relative flex flex-col p-6 rounded-3xl bg-neutral-950/50 border border-white/5 backdrop-blur-md hover:bg-neutral-900 transition-all duration-300 hover:border-white/10 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <Activity className="w-8 h-8 text-red-400 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Stats & Standings</h3>
-            <p className="text-neutral-400 text-sm">Check standings and individual player statistics.</p>
-          </Link>
-
-        </div>
-
-        <div className="mt-16 flex items-center justify-center gap-6">
-          <Link href="/join" className="group relative flex items-center justify-center gap-2 px-6 py-3 bg-[#E31837] text-white font-bold rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(227,24,55,0.3)] hover:shadow-[0_0_30px_rgba(227,24,55,0.5)] hover:-translate-y-1">
-            <UserPlus className="w-5 h-5" />
-            <span>Join League</span>
-          </Link>
-
-          <Link href="/login" className="text-neutral-600 hover:text-neutral-400 text-sm transition-colors flex items-center gap-2">
-            <Settings className="w-4 h-4" />
-            Admin Login
-          </Link>
-        </div>
-      </main>
+        {/* YUWFFL Portal */}
+        <Link href="/yuwffl" className="group relative flex flex-col items-center justify-center p-12 rounded-[3rem] bg-neutral-950/50 border border-white/5 backdrop-blur-md hover:bg-neutral-900 transition-all duration-500 hover:border-white/20 overflow-hidden shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:-translate-y-2">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <UsersIcon className="w-16 h-16 text-white mb-6 transform group-hover:scale-110 transition-transform duration-500" />
+          <h2 className="text-3xl font-black mb-4 tracking-wider">YUWFFL</h2>
+          <p className="text-neutral-400 text-center">York University Women's Flag Football League (Intramural/Rec)</p>
+        </Link>
+      </div>
     </div>
+  );
+}
+
+function UsersIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
   );
 }
